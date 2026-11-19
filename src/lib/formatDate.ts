@@ -40,3 +40,32 @@ export function formatPeriod(
 
     return `${startLabel} — ${endLabel}`;
 }
+
+export function formatAcademicDate(
+    value: string,
+): string {
+    if (/^\d{4}$/.test(value)) {
+        return value;
+    }
+
+    return formatMonthYear(value);
+}
+
+export function formatEducationPeriod(
+    start?: string,
+    end?: string,
+): string | null {
+    if (start && end) {
+        return `${formatAcademicDate(start)} — ${formatAcademicDate(end)}`;
+    }
+
+    if (end) {
+        return `Conclusão em ${formatAcademicDate(end)}`;
+    }
+
+    if (start) {
+        return `Início em ${formatAcademicDate(start)}`;
+    }
+
+    return null;
+}

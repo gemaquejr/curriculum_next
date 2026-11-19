@@ -2,8 +2,10 @@ import { Container } from "@/components/layout";
 
 import {
   About,
+  Education,
   Experience,
   Hero,
+  Skills,
 } from "@/components/sections";
 
 import { Badge, Card } from "@/components/ui";
@@ -21,12 +23,18 @@ export default function Home() {
 
       <Experience />
 
+      <Education />
+
+      <Skills />
+
       {navigationItems
         .filter(
           (item) =>
             item.id !== "home" &&
             item.id !== "about" &&
-            item.id !== "experience",
+            item.id !== "experience" &&
+            item.id !== "education" &&
+            item.id !== "skills",
         )
         .map((item) => (
           <section
@@ -37,26 +45,16 @@ export default function Home() {
             className={styles.section}
           >
             <Container>
-              <div
-                className={
-                  styles.sectionContent
-                }
-              >
+              <div className={styles.sectionContent}>
                 <h2
                   id={`${item.id}-title`}
-                  className={
-                    styles.sectionTitle
-                  }
+                  className={styles.sectionTitle}
                 >
                   {item.label}
                 </h2>
 
                 <Card variant="outlined">
-                  <div
-                    className={
-                      styles.placeholder
-                    }
-                  >
+                  <div className={styles.placeholder}>
                     <Badge variant="outline">
                       Em desenvolvimento
                     </Badge>
