@@ -1,0 +1,24 @@
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Francisco Gemaque | Desenvolvedor Full Stack",
+  description:
+    "Currículo digital e portfólio profissional de Francisco Gemaque, desenvolvedor Full Stack.",
+};
+
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({
+  children,
+}: RootLayoutProps) {
+  return (
+    <html lang="pt-BR">
+      <body>{children}</body>
+    </html>
+  );
+}
