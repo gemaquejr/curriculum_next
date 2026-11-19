@@ -1,5 +1,11 @@
 import { Container } from "@/components/layout";
-import { Hero } from "@/components/sections";
+
+import {
+  About,
+  Experience,
+  Hero,
+} from "@/components/sections";
+
 import { Badge, Card } from "@/components/ui";
 
 import { navigationItems } from "@/data/navigation";
@@ -11,8 +17,17 @@ export default function Home() {
     <main className={styles.main}>
       <Hero />
 
+      <About />
+
+      <Experience />
+
       {navigationItems
-        .filter((item) => item.id !== "home")
+        .filter(
+          (item) =>
+            item.id !== "home" &&
+            item.id !== "about" &&
+            item.id !== "experience",
+        )
         .map((item) => (
           <section
             key={item.id}

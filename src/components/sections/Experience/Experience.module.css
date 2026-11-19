@@ -1,0 +1,114 @@
+.experience {
+    width: 100%;
+
+    padding-block: var(--section-spacing);
+
+    background-color: var(--color-background);
+
+    border-top: 1px solid var(--color-border);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--spacing-10);
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--spacing-6);
+
+    width: 100%;
+    max-width: 960px;
+
+    margin-inline: auto;
+
+    list-style: none;
+}
+
+.item {
+    --marker-size: 36px;
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        var(--marker-size) minmax(0, 1fr);
+
+    align-items: start;
+
+    gap: var(--spacing-3);
+
+    min-width: 0;
+}
+
+.item:not(:last-child)::before {
+    position: absolute;
+
+    top: var(--marker-size);
+
+    bottom: calc(-1 * var(--spacing-6));
+
+    left: calc(var(--marker-size) / 2 - 1px);
+
+    width: 2px;
+
+    background-color: var(--color-border-strong);
+
+    content: "";
+}
+
+.marker {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: var(--marker-size);
+    height: var(--marker-size);
+
+    background-color: var(--color-accent-background);
+
+    color: var(--color-accent-text);
+
+    border: 1px solid var(--color-border-strong);
+
+    border-radius: var(--radius-full);
+}
+
+.marker svg {
+    width: 18px;
+    height: 18px;
+}
+
+@media (min-width: 768px) {
+    .timeline {
+        gap: var(--spacing-8);
+    }
+
+    .item {
+        --marker-size: 48px;
+
+        gap: var(--spacing-6);
+    }
+
+    .item:not(:last-child)::before {
+        bottom: calc(-1 * var(--spacing-8));
+    }
+
+    .marker svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .content {
+        gap: var(--spacing-12);
+    }
+}
