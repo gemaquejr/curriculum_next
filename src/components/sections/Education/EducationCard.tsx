@@ -127,9 +127,9 @@ export function EducationCard({
             </div>
 
             <div className={styles.information}>
-                <h3 className={styles.title}>
+                <h4 className={styles.title}>
                     {title}
-                </h3>
+                </h4>
 
                 <p className={styles.institution}>
                     {institutionUrl ? (

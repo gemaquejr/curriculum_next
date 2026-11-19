@@ -1,7 +1,7 @@
 import type { Profile } from "@/types/profile";
 
 export const profile: Profile = {
-    name: "Francisco Gemaque",
+    name: "Francisco Espíndola Gemaque Junior",
 
     initials: "FG",
 
@@ -38,5 +38,17 @@ export const profile: Profile = {
             label: "GitHub",
             href: "https://github.com/gemaquejr",
         },
+        {
+            platform: "linkedin",
+            label: "LinkedIn",
+            href: "https://www.linkedin.com/in/gemaquejr",
+        },
+        {
+            platform: "email",
+            label: "E-mail",
+            href: "mailto:gemaquejr@hotmail.com",
+        },
     ],
+
+    resumeUrl: "/documents/francisco-gemaque-curriculo.pdf",
 };
