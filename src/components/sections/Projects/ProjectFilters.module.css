@@ -1,0 +1,148 @@
+.card {
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--spacing-5);
+    min-width: 0;
+}
+
+.controls {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: var(--spacing-4);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--spacing-2);
+    min-width: 0;
+}
+
+.label {
+    color: var(--color-text-primary);
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+}
+
+.searchField {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.searchIcon {
+    position: absolute;
+
+    left: var(--spacing-3);
+
+    color: var(--color-text-muted);
+
+    pointer-events: none;
+}
+
+.searchInput,
+.select {
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+
+    padding:
+        var(--spacing-3) var(--spacing-4);
+
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+
+    font-size: var(--font-size-base);
+
+    transition:
+        border-color var(--transition-fast),
+        background-color var(--transition-fast);
+}
+
+.searchInput {
+    padding-inline-start: var(--spacing-10);
+}
+
+.searchInput::placeholder {
+    color: var(--color-text-muted);
+}
+
+.searchInput:focus,
+.select:focus {
+    border-color: var(--color-primary);
+}
+
+.select {
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    gap: var(--spacing-3);
+    padding-top: var(--spacing-4);
+
+    border-top: 1px solid var(--color-border);
+}
+
+.counter {
+    color: var(--color-text-secondary);
+
+    font-size: var(--font-size-sm);
+}
+
+.counter strong {
+    color: var(--color-primary);
+
+    font-weight: var(--font-weight-bold);
+}
+
+@media (max-width: 479px) {
+    .card {
+        padding: var(--spacing-4);
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width: 640px) {
+    .controls {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .field:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 1024px) {
+    .card {
+        padding: var(--spacing-8);
+    }
+
+    .controls {
+        grid-template-columns:
+            minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .field:first-child {
+        grid-column: auto;
+    }
+}

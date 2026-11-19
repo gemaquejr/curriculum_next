@@ -5,12 +5,11 @@ import {
   Education,
   Experience,
   Hero,
+  Projects,
   Skills,
 } from "@/components/sections";
 
 import { Badge, Card } from "@/components/ui";
-
-import { navigationItems } from "@/data/navigation";
 
 import styles from "./page.module.css";
 
@@ -27,50 +26,38 @@ export default function Home() {
 
       <Skills />
 
-      {navigationItems
-        .filter(
-          (item) =>
-            item.id !== "home" &&
-            item.id !== "about" &&
-            item.id !== "experience" &&
-            item.id !== "education" &&
-            item.id !== "skills",
-        )
-        .map((item) => (
-          <section
-            key={item.id}
-            id={item.id}
-            tabIndex={-1}
-            aria-labelledby={`${item.id}-title`}
-            className={styles.section}
-          >
-            <Container>
-              <div className={styles.sectionContent}>
-                <h2
-                  id={`${item.id}-title`}
-                  className={styles.sectionTitle}
-                >
-                  {item.label}
-                </h2>
+      <Projects />
 
-                <Card variant="outlined">
-                  <div className={styles.placeholder}>
-                    <Badge variant="outline">
-                      Em desenvolvimento
-                    </Badge>
+      <section
+        id="contact"
+        tabIndex={-1}
+        aria-labelledby="contact-title"
+        className={styles.section}
+      >
+        <Container>
+          <div className={styles.sectionContent}>
+            <h2
+              id="contact-title"
+              className={styles.sectionTitle}
+            >
+              Contato
+            </h2>
 
-                    <p>
-                      Esta seção será
-                      implementada nas
-                      próximas etapas
-                      do projeto.
-                    </p>
-                  </div>
-                </Card>
+            <Card variant="outlined">
+              <div className={styles.placeholder}>
+                <Badge variant="outline">
+                  Em desenvolvimento
+                </Badge>
+
+                <p>
+                  Esta seção será implementada
+                  nas próximas etapas do projeto.
+                </p>
               </div>
-            </Container>
-          </section>
-        ))}
+            </Card>
+          </div>
+        </Container>
+      </section>
     </main>
   );
 }
