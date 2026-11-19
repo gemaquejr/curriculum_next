@@ -1,12 +1,13 @@
 import { Container } from "@/components/layout";
 
 import {
-  About,
-  Education,
-  Experience,
-  Hero,
-  Projects,
-  Skills,
+    About,
+    Education,
+    Experience,
+    Hero,
+    Projects,
+    ShareResume,
+    Skills,
 } from "@/components/sections";
 
 import { Badge, Card } from "@/components/ui";
@@ -27,6 +28,8 @@ export default function Home() {
       <Skills />
 
       <Projects />
+
+      <ShareResume />
 
       <section
         id="contact"

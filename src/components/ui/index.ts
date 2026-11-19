@@ -12,3 +12,9 @@ export { SectionHeading } from "./SectionHeading";
 export type {
     SectionHeadingProps,
 } from "./SectionHeading";
+
+export { QRCode } from "./QRCode";
+
+export type {
+    QRCodeProps,
+} from "./QRCode";
