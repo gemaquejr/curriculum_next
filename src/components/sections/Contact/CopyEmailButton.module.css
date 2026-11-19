@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: var(--spacing-2);
+
+    width: 100%;
+    min-width: 0;
+}
+
+.button {
+    min-height: 44px;
+}
+
+.feedback {
+    min-width: 0;
+
+    font-size: var(--font-size-xs);
+
+    line-height: var(--line-height-normal);
+
+    overflow-wrap: anywhere;
+}
+
+.idle {
+    color: var(--color-text-secondary);
+}
+
+.success {
+    color: var(--color-success);
+}
+
+.error {
+    color: var(--color-error);
+}

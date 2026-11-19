@@ -11,3 +11,5 @@ export { Skills } from "./Skills";
 export { Projects } from "./Projects";
 
 export { ShareResume } from "./ShareResume";
+
+export { Contact } from "./Contact";

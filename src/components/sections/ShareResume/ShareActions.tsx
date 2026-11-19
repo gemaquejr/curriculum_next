@@ -11,6 +11,8 @@ import { Button } from "@/components/ui";
 
 import styles from "./ShareActions.module.css";
 
+import { copyToClipboard } from "@/lib/clipboard";
+
 interface ShareActionsProps {
     url: string;
     title: string;
@@ -43,13 +45,7 @@ export function ShareActions({
 
     async function handleCopy(): Promise<void> {
         try {
-            if (!navigator.clipboard?.writeText) {
-                throw new Error(
-                    "Clipboard API indisponível.",
-                );
-            }
-
-            await navigator.clipboard.writeText(url);
+            await copyToClipboard(url);
 
             setFeedback({
                 type: "success",

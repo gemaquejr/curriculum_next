@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import { Header } from "@/components/layout";
+import {
+  Footer,
+  Header,
+} from "@/components/layout";
+
 import { profile } from "@/data/profile";
 
 import "./globals.css";
@@ -26,6 +30,8 @@ export default function RootLayout({
         <Header />
 
         {children}
+
+        <Footer />
       </body>
     </html>
   );

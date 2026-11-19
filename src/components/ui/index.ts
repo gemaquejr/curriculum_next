@@ -18,3 +18,9 @@ export { QRCode } from "./QRCode";
 export type {
     QRCodeProps,
 } from "./QRCode";
+
+export { SocialIcon } from "./SocialIcon";
+
+export type {
+    SocialIconProps,
+} from "./SocialIcon";
