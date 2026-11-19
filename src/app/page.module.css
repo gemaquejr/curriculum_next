@@ -1,36 +1,129 @@
 .main {
+    min-height: 100vh;
+
+    padding-block: var(--spacing-12);
+}
+
+.header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 24px;
-    min-height: 100vh;
-    padding: 24px;
+
+    gap: var(--spacing-4);
+
+    margin-bottom: var(--spacing-12);
+
     text-align: center;
 }
 
-.label {
-    font-size: 0.875rem;
-    font-weight: 600;
+.eyebrow {
+    color: var(--color-primary);
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    opacity: 0.7;
 }
 
 .title {
-    font-size: clamp(2rem, 6vw, 4rem);
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-.subtitle {
-    font-size: clamp(1rem, 3vw, 1.5rem);
-    font-weight: 400;
+    font-size: clamp(var(--font-size-3xl),
+            6vw,
+            var(--font-size-5xl));
 }
 
 .description {
     max-width: 600px;
-    font-size: 1rem;
-    line-height: 1.8;
-    opacity: 0.8;
+
+    color: var(--color-text-secondary);
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--spacing-4);
+
+    margin-bottom: var(--spacing-10);
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+
+    gap: var(--spacing-3);
+
+    font-size: var(--font-size-2xl);
+}
+
+.sectionTitle svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+}
+
+.componentGroup {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: var(--spacing-3);
+
+    margin-bottom: var(--spacing-5);
+}
+
+.componentGroup:last-child {
+    margin-bottom: 0;
+}
+
+.cardGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: var(--spacing-4);
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: var(--spacing-3);
+}
+
+.cardContent h3 {
+    font-size: var(--font-size-xl);
+}
+
+.cardContent p {
+    color: var(--color-text-secondary);
+
+    font-size: var(--font-size-sm);
+}
+
+.technologies {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: var(--spacing-2);
+}
+
+.footer {
+    padding-top: var(--spacing-6);
+
+    border-top: 1px solid var(--color-border);
+
+    color: var(--color-text-muted);
+
+    font-size: var(--font-size-sm);
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .main {
+        padding-block: var(--spacing-16);
+    }
+
+    .cardGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
