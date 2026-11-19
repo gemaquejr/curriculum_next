@@ -1,203 +1,81 @@
-import {
-  ArrowRight,
-  Code,
-  Download,
-  Layers,
-  Terminal,
-} from "lucide-react";
-
 import { Container } from "@/components/layout";
-import { Badge, Button, Card } from "@/components/ui";
+import { Badge, Card } from "@/components/ui";
+
+import { navigationItems } from "@/data/navigation";
+import { profile } from "@/data/profile";
 
 import styles from "./page.module.css";
-
-const technologies = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Python",
-  "PostgreSQL",
-  "Prisma",
-  "Docker",
-  "Jest",
-];
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Container>
-        <header className={styles.header}>
-          <span className={styles.eyebrow}>
-            Curriculum Next
-          </span>
+      <section
+        id="home"
+        tabIndex={-1}
+        aria-labelledby="home-title"
+        className={styles.hero}
+      >
+        <Container>
+          <div className={styles.heroContent}>
+            <Badge variant="primary">
+              Currículo Digital
+            </Badge>
 
-          <h1 className={styles.title}>
-            Design System
-          </h1>
+            <h1
+              id="home-title"
+              className={styles.title}
+            >
+              {profile.name}
+            </h1>
 
-          <p className={styles.description}>
-            Componentes reutilizáveis, acessíveis
-            e consistentes para o currículo digital.
-          </p>
+            <h2 className={styles.subtitle}>
+              {profile.title}
+            </h2>
 
-          <Badge variant="primary">
-            Desenvolvimento inicial
-          </Badge>
-        </header>
-
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            <Layers size={24} aria-hidden="true" />
-            Buttons
-          </h2>
-
-          <Card>
-            <div className={styles.componentGroup}>
-              <Button leftIcon={<Download />}>
-                Primary
-              </Button>
-
-              <Button variant="secondary">
-                Secondary
-              </Button>
-
-              <Button
-                variant="ghost"
-                rightIcon={<ArrowRight />}
-              >
-                Ghost
-              </Button>
-
-              <Button disabled>
-                Disabled
-              </Button>
-            </div>
-
-            <div className={styles.componentGroup}>
-              <Button size="sm">
-                Small
-              </Button>
-
-              <Button size="md">
-                Medium
-              </Button>
-
-              <Button size="lg">
-                Large
-              </Button>
-            </div>
-
-            <Button fullWidth variant="secondary">
-              Full Width
-            </Button>
-          </Card>
-        </section>
-
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            <Code size={24} aria-hidden="true" />
-            Cards
-          </h2>
-
-          <div className={styles.cardGrid}>
-            <Card hoverable>
-              <div className={styles.cardContent}>
-                <Badge variant="primary">
-                  Default
-                </Badge>
-
-                <h3>Desenvolvimento Frontend</h3>
-
-                <p>
-                  Interfaces responsivas com React,
-                  Next.js e TypeScript.
-                </p>
-              </div>
-            </Card>
-
-            <Card variant="outlined" hoverable>
-              <div className={styles.cardContent}>
-                <Badge variant="outline">
-                  Outlined
-                </Badge>
-
-                <h3>Desenvolvimento Backend</h3>
-
-                <p>
-                  APIs REST, regras de negócio
-                  e integração com bancos de dados.
-                </p>
-              </div>
-            </Card>
-
-            <Card variant="elevated" hoverable>
-              <div className={styles.cardContent}>
-                <Badge variant="success">
-                  Elevated
-                </Badge>
-
-                <h3>Desenvolvimento Full Stack</h3>
-
-                <p>
-                  Soluções completas, da interface
-                  à infraestrutura da aplicação.
-                </p>
-              </div>
-            </Card>
+            <p className={styles.description}>
+              Transformando ideias em soluções
+              digitais através da tecnologia e do
+              desenvolvimento de software.
+            </p>
           </div>
-        </section>
+        </Container>
+      </section>
 
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            <Terminal size={24} aria-hidden="true" />
-            Badges
-          </h2>
-
-          <Card>
-            <div className={styles.componentGroup}>
-              <Badge>Default</Badge>
-              <Badge variant="primary">Primary</Badge>
-              <Badge variant="success">Success</Badge>
-              <Badge variant="warning">Warning</Badge>
-              <Badge variant="error">Error</Badge>
-              <Badge variant="outline">Outline</Badge>
-            </div>
-
-            <div className={styles.componentGroup}>
-              <Badge size="sm">Small</Badge>
-              <Badge size="md">Medium</Badge>
-              <Badge size="lg">Large</Badge>
-            </div>
-          </Card>
-        </section>
-
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            Tecnologias
-          </h2>
-
-          <Card>
-            <div className={styles.technologies}>
-              {technologies.map((technology) => (
-                <Badge
-                  key={technology}
-                  variant="primary"
+      {navigationItems
+        .filter((item) => item.id !== "home")
+        .map((item) => (
+          <section
+            key={item.id}
+            id={item.id}
+            tabIndex={-1}
+            aria-labelledby={`${item.id}-title`}
+            className={styles.section}
+          >
+            <Container>
+              <div className={styles.sectionContent}>
+                <h2
+                  id={`${item.id}-title`}
+                  className={styles.sectionTitle}
                 >
-                  {technology}
-                </Badge>
-              ))}
-            </div>
-          </Card>
-        </section>
+                  {item.label}
+                </h2>
 
-        <footer className={styles.footer}>
-          <p>
-            Curriculum Next — Design System v0.1.0
-          </p>
-        </footer>
-      </Container>
+                <Card variant="outlined">
+                  <div className={styles.placeholder}>
+                    <Badge variant="outline">
+                      Em desenvolvimento
+                    </Badge>
+
+                    <p>
+                      Esta seção será implementada
+                      nas próximas etapas do projeto.
+                    </p>
+                  </div>
+                </Card>
+              </div>
+            </Container>
+          </section>
+        ))}
     </main>
   );
 }

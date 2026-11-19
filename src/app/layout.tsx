@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+import { Header } from "@/components/layout";
+import { profile } from "@/data/profile";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Francisco Gemaque | Desenvolvedor Full Stack",
+  title: `${profile.name} | ${profile.title}`,
+
   description:
-    "Currículo digital e portfólio profissional de Francisco Gemaque, desenvolvedor Full Stack.",
+    `Currículo digital e portfólio profissional de ${profile.name}, desenvolvedor Full Stack.`,
 };
 
 interface RootLayoutProps {
@@ -18,7 +22,11 @@ export default function RootLayout({
 }: RootLayoutProps) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body>
+        <Header />
+
+        {children}
+      </body>
     </html>
   );
 }
