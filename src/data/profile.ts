@@ -5,6 +5,13 @@ export const profile: Profile = {
 
     initials: "FG",
 
+    image: {
+        src: "/images/profile/francisco-gemaque-profile.png",
+        alt: "Foto profissional de Francisco Gemaque",
+        width: 1024,
+        height: 1024,
+    },
+
     title: "Desenvolvedor Full Stack",
 
     greeting: "Olá, eu sou",
