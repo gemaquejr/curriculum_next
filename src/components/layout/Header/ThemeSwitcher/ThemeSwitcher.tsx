@@ -121,7 +121,6 @@ export function ThemeSwitcher() {
                     }`}
                 aria-expanded={isOpen}
                 aria-controls="theme-options"
-                aria-haspopup="true"
                 onClick={() => setIsOpen((previous) => !previous)}
             >
                 <CurrentIcon size={20} aria-hidden="true" />

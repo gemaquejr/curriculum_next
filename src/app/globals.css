@@ -118,3 +118,29 @@ video {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ========================================
+   SKIP LINK
+   ======================================== */
+
+.skip-link {
+  position: fixed;
+  top: var(--spacing-4);
+  left: var(--spacing-4);
+  z-index: 9999;
+
+  padding: var(--spacing-3) var(--spacing-4);
+
+  background-color: var(--color-primary);
+  color: var(--color-primary-contrast);
+
+  border-radius: var(--radius-md);
+
+  font-weight: var(--font-weight-semibold);
+
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}

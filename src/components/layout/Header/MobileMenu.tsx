@@ -18,6 +18,7 @@ export function MobileMenu({
     const [isOpen, setIsOpen] = useState(false);
 
     const buttonRef = useRef<HTMLButtonElement>(null);
+    const navigationRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
         if (!isOpen) return;
@@ -60,6 +61,22 @@ export function MobileMenu({
         };
     }, []);
 
+    function handleToggle() {
+        if (isOpen) {
+            setIsOpen(false);
+            buttonRef.current?.focus();
+            return;
+        }
+
+        setIsOpen(true);
+
+        requestAnimationFrame(() => {
+            navigationRef.current
+                ?.querySelector<HTMLAnchorElement>("a")
+                ?.focus();
+        });
+    }
+
     function handleNavigate(section: SectionId) {
         onNavigate(section);
         setIsOpen(false);
@@ -80,7 +97,7 @@ export function MobileMenu({
                 }
                 aria-expanded={isOpen}
                 aria-controls="mobile-navigation"
-                onClick={() => setIsOpen((previous) => !previous)}
+                onClick={handleToggle}
             >
                 {isOpen ? (
                     <X size={24} aria-hidden="true" />
@@ -90,6 +107,7 @@ export function MobileMenu({
             </button>
 
             <nav
+                ref={navigationRef}
                 id="mobile-navigation"
                 className={styles.navigation}
                 aria-label="Navegação mobile"
