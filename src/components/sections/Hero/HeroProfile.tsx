@@ -15,6 +15,7 @@ export function HeroProfile() {
                         width={profile.image.width}
                         height={profile.image.height}
                         sizes="(max-width: 767px) 220px, 360px"
+                        loading="eager"
                         className={styles.image}
                     />
                 ) : (
