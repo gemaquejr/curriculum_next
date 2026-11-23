@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { themeInitScript } from "@/lib/theme-init";
 
 import {
   Footer,
@@ -25,7 +26,15 @@ export default function RootLayout({
   children,
 }: RootLayoutProps) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: themeInitScript,
+          }}
+        />
+      </head>
+
       <body>
         <Header />
 
